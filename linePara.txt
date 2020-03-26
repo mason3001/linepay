@@ -1,0 +1,19 @@
+amount  Number    Y 支付金額
+                  = sum(packages[].amount) + sum(packages[].userFee) + options.shipping.feeAmount
+currency  String  3 Y 貨幣（ISO 4217）支援貨幣：USD、JPY、TWD、THB
+orderId String  100 Y 商家訂單編號 商家管理的唯一ID
+packages[].id String  50  Y Package list的唯一ID
+packages[].amount Number    Y 一個Package中的商品總價 =sum(products[].quantity * products[].price)
+packages[].userFee  Number    N 手續費：在付款金額中含手續費時設定
+packages[].name String  100 Y Package名稱 （or Shop Name）
+packages[].products[].id  String  50  N 商家商品ID
+packages[].products[].name  String  4000  Y 商品名
+packages[].products[].imageUrl  String  500 N 商品圖示的URL
+packages[].products[].quantity  Number    Y 商品數量
+packages[].products[].price Number    Y 各商品付款金額
+packages[].products[].originalPrice Number    N 各商品原金額
+redirectUrls.appPackageName String  4000  N 
+                                  在Android環境切換應用時所需的資訊，用於防止網路釣魚攻擊（phishing）
+redirectUrls.confirmUrl String  500 Y 使用者授權付款後，跳轉到該商家URL
+redirectUrls.confirmUrlType String  N 使用者授權付款後，跳轉的confirmUrl類型
+redirectUrls.cancelUrl  String  500 Y 使用者通過LINE支付頁，取消支付後跳轉到該URL
